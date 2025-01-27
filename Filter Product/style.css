@@ -3,6 +3,11 @@
     margin: 0;
     box-sizing: border-box;
 }
+body.new-background {
+    background-color: lightblue; /* Choose your desired color */
+    color: white; /* Adjust text color if needed */
+}
+
 .filter-container{
     display: flex;
     justify-content: space-between;

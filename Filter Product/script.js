@@ -33,3 +33,11 @@ searchInput.addEventListener("keyup", filterProduct);
 categoryBtns.forEach(btn => btn.addEventListener("click", setCategory));
 
 filterProduct();
+
+const changeBackgroundBtn = document.getElementById("change-background-btn");
+
+// Add an event listener to the button
+changeBackgroundBtn.addEventListener("click", () => {
+    // Toggle the background class on the body element
+    document.body.classList.toggle("new-background");
+});
