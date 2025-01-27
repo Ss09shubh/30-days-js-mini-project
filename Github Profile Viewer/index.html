@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Github Profile Viewer</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Github Profile Viewer</h1>
+        <input type="text" id="username" placeholder="Enter username">
+        <button onclick="fetchProfile()">Get Profile</button>
+        <div id="profile"></div>
+    </div>
+    <script>
+        function fetchProfile() {
+            const username = document.getElementById("username").value;
+            if (!username) {
+                alert('Enter a GitHub username');
+                return;
+            }
+
+            fetch(`https://api.github.com/users/${username}`)
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error("Network response is not ok");
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    displayProfile(data);
+                })
+                .catch(err => {
+                    console.log("There was a problem with the fetch operation:", err);
+                });
+        }
+
+        function displayProfile(profileData) {
+            const profileElement = document.getElementById("profile");
+            profileElement.innerHTML = `
+                <h2>${profileData.login} (${profileData.name || "N/A"})</h2>
+                <img src="${profileData.avatar_url}" style="width:100px; height:100px; border-radius: 50%;" alt="Avatar"/>
+                <p><strong>ID:</strong> ${profileData.id}</p>
+                <p><strong>Node ID:</strong> ${profileData.node_id}</p>
+                <p><strong>Profile URL:</strong> <a href="${profileData.html_url}" target="_blank">${profileData.html_url}</a></p>
+                <p><strong>Type:</strong> ${profileData.type}</p>
+                <p><strong>Site Admin:</strong> ${profileData.site_admin}</p>
+                <p><strong>Public Repositories:</strong> ${profileData.public_repos}</p>
+                <p><strong>Public Gists:</strong> ${profileData.public_gists}</p>
+                <p><strong>Followers:</strong> ${profileData.followers}</p>
+                <p><strong>Following:</strong> ${profileData.following}</p>
+                <p><strong>Created At:</strong> ${new Date(profileData.created_at).toLocaleDateString()}</p>
+                <p><strong>Updated At:</strong> ${new Date(profileData.updated_at).toLocaleDateString()}</p>
+                <p><strong>Company:</strong> ${profileData.company || "N/A"}</p>
+                <p><strong>Blog:</strong> <a href="${profileData.blog}" target="_blank">${profileData.blog || "N/A"}</a></p>
+                <p><strong>Location:</strong> ${profileData.location || "N/A"}</p>
+                <p><strong>Email:</strong> ${profileData.email || "N/A"}</p>
+                <p><strong>Hireable:</strong> ${profileData.hireable || "N/A"}</p>
+                <p><strong>Bio:</strong> ${profileData.bio || "N/A"}</p>
+                <p><strong>Twitter:</strong> ${profileData.twitter_username ? `<a href="https://twitter.com/${profileData.twitter_username}" target="_blank">@${profileData.twitter_username}</a>` : "N/A"}</p>
+                <p><strong>Followers URL:</strong> <a href="${profileData.followers_url}" target="_blank">${profileData.followers_url}</a></p>
+                <p><strong>Following URL:</strong> <a href="${profileData.following_url}" target="_blank">${profileData.following_url}</a></p>
+                <p><strong>Repositories URL:</strong> <a href="${profileData.repos_url}" target="_blank">${profileData.repos_url}</a></p>
+            `;
+        }
+    </script>
+</body>
+</html>
