@@ -1,0 +1,28 @@
+.container{
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+}
+h1{
+    text-align: center;
+    margin-bottom: 20px;
+}
+input[type="text"]{
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+}
+button{
+    padding: 10px;
+    font-size: 16px;
+    background-color: blue;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+}
+#output{
+    margin-top: 20px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+}
