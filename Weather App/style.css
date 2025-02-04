@@ -1,0 +1,24 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+  }
+  
+  .weather-container {
+    margin: 50px auto;
+    max-width: 400px;
+  }
+  
+  input {
+    padding: 5px;
+    margin-right: 10px;
+  }
+  
+  button {
+    padding: 5px 10px;
+  }
+  
+  #weatherInfo {
+    display: none;
+    margin-top: 20px;
+  }
+  
