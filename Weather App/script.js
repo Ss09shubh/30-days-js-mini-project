@@ -15,7 +15,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   
     async function getWeather(city) {
-      const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+      const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${'d54fd4c977cbc6eaf2350839aea99eb3'}`;
   
       try {
         const response = await fetch(url);
