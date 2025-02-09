@@ -1,0 +1,112 @@
+body {
+    font-family: "Arial", sans-serif;
+    background-color: #f7f7f7;
+    color: #333;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .container {
+    max-width: 900px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  h1,
+  h2 {
+    color: #333;
+    text-align: center;
+    margin-bottom: 30px;
+  }
+  
+  input,
+  ul {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #d9d9d9;
+    border-radius: 4px;
+    font-size: 16px;
+    margin-bottom: 15px;
+    outline: none;
+  }
+  
+  button {
+    display: block;
+    width: 100%;
+    background-color: #4a90e2;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-bottom: 20px;
+  }
+  
+  button:hover {
+    background-color: #357ab7;
+  }
+  
+  #movieDisplay {
+    background-color: #f9f9f9;
+    padding: 15px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+  }
+  
+  /* CSS FOR TOGGEL BUTTON */
+  .toggel_label {
+    position: relative;
+    height: 20px;
+    width:50px;
+    border-radius:10px;
+    display:block;
+    cursor:pointer;
+    border: 1px solid black;
+    transition:0.3s;
+  }
+  
+  .toggel_label::after{
+    content:'';
+    position:absolute;
+    width:20px;
+    height:20px;
+    top:0.2px;
+    left:1px;
+    background-color:black;
+    border-radius:50%;
+    transition:0.3s;
+  }
+  
+  .toggel_input{
+    display:none;
+  }
+  
+  .toggel_input:checked + .toggel_label::after{
+    content:'';
+    position:absolute;
+    width:20px;
+    height:20px;
+    top:0.2px;
+    left:30px;
+    background-color:white;
+    border-radius:50%;
+    transition:0.3s;
+  }
+  
+  .toggel_input:checked + .toggel_label{
+    /* cposition: relative; */
+    height: 20px;
+    width:50px;
+    border-radius:10px;
+    display:block;
+    cursor:pointer;
+    border: 1px solid black;
+    background-color:black;
+    transition:0.3s;
+  }
+  
